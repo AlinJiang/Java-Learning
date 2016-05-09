@@ -1,0 +1,144 @@
+﻿1.命名习惯：
+	变量名和方法名首字母小写，后面每个单词首字母大写,如radius，circleArea
+	类名中每个单词的首字母大写，如ComputerBases
+	常量名全是大写，并且两个单词之间用下划线连接，如VALUE, MAX_INT
+2.java的关键字区分大小写
+3.java源程序为×.java,用javac编译为×.class文件字节码，用java加名字（不需要.class）运行
+4.java源文件名约定与public类名字一致
+5.编译型语言：事先将程序翻译成机器语言，可形成独立执行的exe文件
+    解释型语言：在运行的时候一句句将程序翻译成机器语言，运行速度相对于编译型语言要慢，无法形 			成可独立执行的文件，运行需要解释器（如JVM）
+			C/C++ 等都是编译型语言，而Java，C#等都是解释型语言。
+			虽然Java程序在运行之前也有一个编译过程，但是将它编译成字节码
+    脚本语言：是一种解释性的语言,例如vbscript,javascript,installshield script,ActionScript等等
+ 			脚本语言不需要编译，可以直接用，由解释器来负责解释。 
+ 			一般都是以文本形式存在,类似于一种命令. 
+6.任何时候输入左括号的时候立即输入右括号，输入左引号的时候立即输入右引号
+7.字符串常量不能跨行写，需要先分割再用加号
+8.声明变量的同时就赋值，常量更是必须如此
+9.注意整除和浮点的除法
+10.带符号的整数类有byte(8) short(16) int(32) long(64)，默认为int
+11.立即数的表达：
+	超过int范围的整数需要显示加上大写字母L
+	默认为十进制，0B开头为二进制，0开头为八进制，0x开头为十六进制
+	浮点数默认为double，可以加F显式声明为float，还可以用aEb（科学计数法）表达
+	一个较长的数字之间可以用下划线分割
+12.1970.1.1为UNIX Epoch
+13.Java可以自动widen类型，并且在发生类型转换时不影响原变量
+14.增强赋值式，如+=，结果的类型以左侧数类型为准
+15.保留三位小数的有效方法，就是利用类型转换，先乘1000并强制转换到整数，再除以1000得到，这种方法得到的是至多三位小数，但是不是强制三位小数
+16.从浮点数转换到整数往往会造成不可预计的精度误差，所以尽量减少使用类型转换，尽量使用整数的运算
+17.java中逻辑类型为boolean，其中的true和false在java中是直接量和保留字，并且直接量本身是无法被赋值的
+18.在if语句中和循环语句中，布尔表达式只接受布尔类型值，即true和false两种，不支持其他的数据类型，这与C和C++不同
+19.多分支的if-else语句推荐使用如下的形式：
+	if
+	else if
+	else if
+	这样可以使程序更容易阅读，且避免深度缩进
+20.布尔表达式中的等于为==号，切勿操作为赋值。
+21.对于布尔量本身的判断，直接写布尔量就可以了，比如：
+	even = true;
+	if (even) {}
+	else {}
+	或者是
+	if (even) {}
+	if (!even) {}
+22.对两个数值相比较的时候，尽量避免浮点数的比较，特别是两个浮点数相等的判断。
+23.布尔类变量赋值表达式是可以简化的，如同合理的利用（）？（）：（）一样，比如：
+	even = number % 2 == 0;
+24.对于java语言的逻辑表达式，在使用多个条件相与或相或的时候，&&和||符号有着短路特性，可以利用此特性进行优化，也要注意被短路表达式在什么时候需要执行
+25.除了赋值操作符，在java中所有的二元操作符都是右结合的。
+26.为了将数字一位位的组合在一起变成数字，可以利用String类的几个函数：
+	首先是digit + "" 或者 "" + digit （结合顺序区别）
+	如果要再转换为数字，可以用Integer.parseInt(String); 或者 Double.parseDouble(String);
+	快速将整数转化为其他进制的字符串，可以使用Integer.toBinaryString(int)
+27.&& 和 ||的优先级最低，比> < == 都要低
+28.数学函数一般都在Math类中，并且有一些注意点：
+	(1) 三角函数都是弧度制，有toDegrees和toRadians实现相互转化，反三角函数为asin acos atan
+	(2) 取整函数有几种类型，ceil 为上取整（但是返回类型为double），floor 为下取整（但是返回为double类型），rint 为最近取整 （.5时取偶数，且返回为double类型），round 为四舍五入（+0.5）取整（是唯一的一个返回类型为int或是long整数的取整函数）
+	(3) 双精度的运算总会产生误差，比如Math.sin(2 * Math.PI) != 0
+29.非拓展的Unicode码为16位码，用\uxxxx(Hex)来表达，其中的\u0000到\u007F为ASCII码， 并且Unicode和ASCII码作为char类型变量是可以参与整型运算的
+30.常用的转义字符有：
+	\b (backSpace)
+	\t (tab，以每一项的开始处计算八个字符，开始写下一个表项)
+	\f (formFeed) 换至下一页打印
+31.字符的比较和测试：
+	Character.isDigit         Character.isLetter      Character.isLetterOrDigit
+	Character.isLowerCase        Character.isUpperCase
+	Character.toLowerCase       Character.toUpperCase
+32.String类型的方法
+	(1) String的变换
+	message.length()
+	message.toUpperCase()                  message.toLowerCase()
+	message.trim() （去掉所有的隐形字符）
+	(2) String的比较  （与C和C++不同，String的等于和比大小都必须使用方法，而不能使用 == 或者是 > < !=等等）
+	msg1.equals(msg2)                           msg1.equalsIgnoreCase(msg2)
+	msg1.compareTo(msg2) （返回msg1 - msg2 的整数）         msg1.compareToIgnoreCase(msg2)
+	(3) String的检索
+	msg1.startsWith(prefix)
+	msg1.endsWith(suffix)
+	msg1.contains(msg2)
+	message.charAt(index)
+	message.indexOf(ch) （没有的话返回 -1）          message.indexOf(str)
+	message.indexOf(ch, fromIndex)                           message.indexOf(str, fromIndex)
+	message.lastIndexOf(ch)                                           message.lastIndexOf(str)
+	message.lastIndexOf(ch, fromIndex)                    message.lastIndexOf(str, fromIndex)
+	(4) String获得子串
+	message.substring(beginIndex)  （注意这里的substring没有大写字母！）
+	message.substring(beginIndex, endIndex) （注意这里的子字符串不会包含message[endIndex]这个字符）
+	可以利用String类型变量将浮点数的整数和小数部分分别提取，并且作为整数处理，彻底解决浮点数的精度转换问题
+	(5) 从控制台获取字符串
+	input.nextLine()
+	input.next()
+	读取单个字符需要配合charAt()
+33.格式化控制台输出System.out.printf
+	System.out.printf("%4.2f", number);
+	那么固定会保证小数点和后两位小数一共三个字符，然后前面的那个4的域宽就会自动突破，但是这个方法是强制几位小数而不是至多几位小数，会强制显示多余的0
+	常见的格式标识符 （只在printf语句中有效）：
+	%b (boolean)
+	%c (char)
+	%f (float || double)
+	%d (decimal int)
+	%e （科学计数法）
+	%s (String)
+	默认情况下输出为右对齐，这在使用制表符时需要考虑
+	可以通过%-s保持左对齐
+34.输入和输出的重定向：
+	在使用java执行程序时，可以加上输入输出重定向参数，< input.txt         > output.txt
+35.最小化浮点数精度误差的方法是，先进行较小的数值运算，最大的数值放在最后运算
+36.有些时候break很好用，可以简化程序并且降低阅读的难度
+37.在编写程序时，面对同样的循环只是循环次数不同时，尽量使用条件语句或者continue和break语句，而不要做无用功选择嵌套循环！
+38.模块化程序有几个显著的优势：
+	(1)简化main方法，使程序逻辑更清晰且可读性更强
+	(2)缩小了调试的范围
+	(3)增加了模块的复用性
+39.可变长参数列表在传入方法时，视为数组处理：
+	可变长参数声明为typeName... parameterName，省略号必须紧跟typeName，最多有一个可变长参数且必须是最后一个参数
+	main方法中的String[] args就是一个可变长参数的例子
+40.java的数组的声明方式与C和C++不同，更加推荐java的方式
+	elementType[] arrayRefVar; （声明数组变量，但是只声明不创建）
+	arrayRefVar = new elementType[arraySize]; （使用new语句创建一个数组空间，将地址赋给arrayRefVar;
+	可以联合声明与创建：
+	elementType[] arrayRefVar = new elementType[arraySize];
+41.数组在创建后会自动初始化，数值型被初始化为0， char类型初始化位‘\u0000' （对应于字符为'\0' NULL），boolean类型被初始化为false
+42.shuffle最直接简单的方法是随机产生下标并与下标i的元素互换
+43.当需要使用循环遍历整个数组时，可以使用foreach语句：
+	for (elementType element: arrayRefVar) {
+	}
+44.复制数组和直接操作数组是不同的，函数中传入的为引用，为直接操作数组，而如果需要复制数组则有三种基本方法：
+	(1)使用循环语句
+	(2)使用System.arraycopy （注意arraycopy无大写字母）：
+		System.arraycopy(sourceArray, sourceStartPosition, targetArray, targetStartPosition, length);
+	(3)使用clone类
+45.匿名数组多用于局部的创建，使用new elementType[] { ... }
+46.Arrays类中常用方法，Arrays类包含于java.util中，需要import java.util.*
+	(1)排序：（升序）
+	Arrays.sort(arrayRefVar, fromIndex, endIndex);  不包括[endIndex]
+	Arrays.parallelSort(arrayRefVar, fromIndex, endIndex);
+	(2)搜索： （数组必须已经按升序排列）
+	Arrays.binarySearch(arrayRefVar, element);  不存在时返回   - (插入点下标 + 1)
+	(3)相等：
+	Arrays.equals(array1, array2);
+	(4)填充：
+	Arrays.fill(arrayRefVar, (fromIndex, endIndex, ) element);  不包括[endIndex]
+	(5)快速打印数组，将数组变为字符串：
+	Arrays.toString(arrayRefVar);

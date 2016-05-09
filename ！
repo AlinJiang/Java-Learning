@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class Test{
+	public static void main(String[] args){
+	//	Scanner input = new Scanner(System.in);
+	//	int x = input.nextInt();
+		System.out.println((char)0x65);
+		System.out.println('A');
+		System.out.println('B');
+		System.out.println('a');
+		System.out.println('b');
+	//	System.out.println();
+	//	System.out.println();
+	//	System.out.println();
+	//	System.out.println();
+	//	System.out.println();
+	}
+}
