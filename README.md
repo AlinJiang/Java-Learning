@@ -1,2 +1,4 @@
 # Java-Learning
-Study notes and source code of exercises in Introduction to Java Programming
+Study notes of Java
+
+and source code of some exercises in 'Introduction to Java Programming'
